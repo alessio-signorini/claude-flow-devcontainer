@@ -1,0 +1,83 @@
+{
+  "name": "Ruby on Rails with Claude-Flow Development Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode",
+      "userUid": 1000,
+      "userGid": 1000
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": true
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts",
+      "nodeGypDependencies": true,
+      "installYarnUsingApt": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "shopify.ruby-lsp",
+        "kaiwood.endwise",
+        "misogi.ruby-rubocop",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-json",
+        "yzhang.markdown-all-in-one",
+        "esbenp.prettier-vscode",
+        "ckolkman.vscode-postgres",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "ruby.useLanguageServer": true,
+        "ruby.lint": {
+          "rubocop": {
+            "useBundler": true
+          }
+        },
+        "solargraph.diagnostics": true,
+        "solargraph.formatting": true,
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+          80,
+          120
+        ],
+        "files.associations": {
+          "*.erb": "erb",
+          "Gemfile": "ruby",
+          "Rakefile": "ruby",
+          "*.rake": "ruby"
+        },
+        "emmet.includeLanguages": {
+          "erb": "html"
+        }
+      }
+    }
+  },
+  "forwardPorts": [
+    3000,
+    5432,
+    6379
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Rails Server",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "PostgreSQL"
+    },
+    "6379": {
+      "label": "Redis"
+    }
+  },
+  "postCreateCommand": "/bin/bash .devcontainer/post-create.sh",
+  "remoteUser": "vscode"
+}

@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Rails Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/bin/rails",
+      "args": [
+        "server",
+        "-b",
+        "0.0.0.0"
+      ],
+      "env": {
+        "RAILS_ENV": "development"
+      },
+      "console": "integratedTerminal",
+      "runtimeExecutable": "ruby"
+    },
+    {
+      "name": "Rails Console",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/bin/rails",
+      "args": [
+        "console"
+      ],
+      "console": "integratedTerminal",
+      "runtimeExecutable": "ruby"
+    },
+    {
+      "name": "Run RSpec",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/bin/rspec",
+      "args": [
+        "${file}"
+      ],
+      "console": "integratedTerminal",
+      "runtimeExecutable": "ruby"
+    }
+  ]
+}
