@@ -43,17 +43,8 @@ RUN apt-get update && apt-get install -y \
 RUN gem update --system && \
     gem install bundler rails
 
-# Install Claude CLI and Flow tools
-RUN npm install -g @anthropic-ai/claude-code claude-flow
-
-# Rebuild libraries for installed version of Node
-RUN cd /usr/local/lib/node_modules/claude-flow/ && npm rebuild
-
 # Create workspace directory
 RUN mkdir -p /workspace
-
-# Configure Git to recognize the workspace directory as safe
-RUN git config --global --add safe.directory /workspace
 
 # Set working directory
 WORKDIR /workspace

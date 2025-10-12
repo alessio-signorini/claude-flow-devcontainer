@@ -40,10 +40,22 @@ cat /workspace/.devcontainer/.env >> /workspace/.env.example
 
 echo "✅ Updated .env.example with current database configuration"
 
+# Configure Git to recognize the workspace directory as safe
+git config --global --add safe.directory /workspace
+echo "✅ Configured Git to recognize /workspace as a safe directory"
+
 # Initialize Claude Flow
 echo "🤖 Initializing Claude Flow..."
 cd /workspace
+
+npm install -g @anthropic-ai/claude-code claude-flow
 npx --yes claude-flow@alpha init
+
+# # Rebuild libraries for installed version of Node
+# cd /usr/local/lib/node_modules/claude-flow/
+# sudo npm rebuild
+# sudo npm install
+# cd /workspace
 
 echo "✅ Claude Flow initialized!"
 
