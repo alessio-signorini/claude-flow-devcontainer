@@ -44,20 +44,18 @@ echo "✅ Updated .env.example with current database configuration"
 git config --global --add safe.directory /workspace
 echo "✅ Configured Git to recognize /workspace as a safe directory"
 
-# Initialize Claude Flow
-echo "🤖 Initializing Claude Flow..."
 cd /workspace
 
+# Initialize Claude Flow
+echo "🤖 Installing Claude Flow..."
 npm install -g @anthropic-ai/claude-code claude-flow
 npx --yes claude-flow@alpha init
-
-# # Rebuild libraries for installed version of Node
-# cd /usr/local/lib/node_modules/claude-flow/
-# sudo npm rebuild
-# sudo npm install
-# cd /workspace
-
 echo "✅ Claude Flow initialized!"
+
+# Install Playwright browsers
+echo "🌐 Installing Playwright browsers..."
+npx playwright install chromium --with-deps
+echo "✅ Playwright browsers installed!"
 
 # Prompt user to configure Claude API key
 echo ""
