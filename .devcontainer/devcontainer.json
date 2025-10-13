@@ -64,6 +64,7 @@
   "forwardPorts": [
     3000,
     5432,
+    5137
     6379
   ],
   "portsAttributes": {
@@ -73,6 +74,9 @@
     },
     "5432": {
       "label": "PostgreSQL"
+    },
+    "5137": {
+      "label": "Vite App"
     },
     "6379": {
       "label": "Redis"
