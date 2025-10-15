@@ -54,7 +54,7 @@ echo "✅ Claude Flow initialized!"
 
 # Install Playwright browsers
 echo "🌐 Installing Playwright browsers..."
-npx playwright install chromium --with-deps
+npx --yes playwright install chromium --with-deps
 echo "✅ Playwright browsers installed!"
 
 # Prompt user to configure Claude API key
